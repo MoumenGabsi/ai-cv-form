@@ -86,7 +86,7 @@ function Contact() {
 
   const extractUserInfo = async (text) => {
     try {
-      const response = await fetch("http://localhost:5000/api/extract-cv", {
+      const response = await fetch("https://ai-cv-form-production.up.railway.app/api/extract-cv", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cvText: text })
@@ -248,7 +248,7 @@ function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch("https://ai-cv-form-production.up.railway.app/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

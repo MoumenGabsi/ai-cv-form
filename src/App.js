@@ -156,7 +156,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/extract-cv",
+        "https://ai-cv-form-production.up.railway.app/api/extract-cv",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -294,7 +294,7 @@ function App() {
   const handleVolunteerSubmit = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/volunteer-application", {
+      const response = await fetch("https://ai-cv-form-production.up.railway.app/api/volunteer-application", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
