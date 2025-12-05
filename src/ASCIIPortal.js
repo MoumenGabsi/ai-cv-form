@@ -23,7 +23,7 @@ export default function ASCIIPortal() {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
+  }, [handleClick]);
 
   return (
     <div style={styles.container}>

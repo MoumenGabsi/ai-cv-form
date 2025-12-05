@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { FiCircle, FiFileText, FiLayers } from 'react-icons/fi';
+import { FiCircle, FiFileText } from 'react-icons/fi';
 
 import './Carousel.css';
 

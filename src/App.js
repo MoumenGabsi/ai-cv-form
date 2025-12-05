@@ -5,7 +5,6 @@ import mammoth from "mammoth";
 import Contact from "./Contact";
 import PageModal from "./PageModal";
 import ASCIIPortal from "./ASCIIPortal";
-import Welcome from "./Welcome";
 import DotGrid from "./DotGrid";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `${process.env.PUBLIC_URL || ''}/pdf.worker.min.mjs`;

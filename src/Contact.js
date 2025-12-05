@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as pdfjsLib from "pdfjs-dist/build/pdf";
 import mammoth from "mammoth";
 import DotGrid from "./DotGrid";
@@ -37,7 +37,6 @@ function CarouselMissions({ items, onSelect }) {
 
 function Contact() {
   const navigate = useNavigate();
-  const location = useLocation();
   const [missionType, setMissionType] = useState("");
   const [userInfo, setUserInfo] = useState({});
   const [formData, setFormData] = useState({
