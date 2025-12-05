@@ -36,7 +36,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
-        branch: gh-pages
+        publish_branch: gh-pages
     
     - name: Deployment Status
       run: echo "✅ Successfully deployed to https://moumengabsi.github.io/ai-cv-form"
