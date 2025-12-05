@@ -2,30 +2,41 @@
 
 ## What Was Wrong
 
-Your build was failing with 4 ESLint errors:
+Your build was failing with ESLint errors:
 
 ```
-1. ASCIIPortal.js:26 - Missing dependency 'handleClick' in useEffect
-2. App.js:8 - Unused import 'Welcome'
-3. Carousel.js:3 - Unused import 'FiLayers'
-4. Contact.js:40 - Unused variable 'location'
+1. ASCIIPortal.js:9 - handleClick changes on every render, should be wrapped in useCallback
+2. App.js:8 - Unused import 'Welcome' ✅ FIXED
+3. Carousel.js:3 - Unused import 'FiLayers' ✅ FIXED
+4. Contact.js:40 - Unused variable 'location' ✅ FIXED
 ```
 
 ## What Was Fixed
 
-### ✅ Fix 1: ASCIIPortal.js (Line 26)
-**Added missing dependency to useEffect:**
+### ✅ Fix 1: ASCIIPortal.js (Lines 1-14) - UPDATED
+**Wrapped handleClick in useCallback to prevent unnecessary re-renders:**
+
 ```javascript
 // Before:
-useEffect(() => {
-  // ...
-}, []);  // ❌ Missing handleClick
+import { useEffect, useState } from 'react';
+const handleClick = () => {
+  setIsExiting(true);
+  setTimeout(() => {
+    navigate('/nexus');
+  }, 600);
+};
 
 // After:
-useEffect(() => {
-  // ...
-}, [handleClick]);  // ✅ Added dependency
+import { useEffect, useState, useCallback } from 'react';
+const handleClick = useCallback(() => {
+  setIsExiting(true);
+  setTimeout(() => {
+    navigate('/nexus');
+  }, 600);
+}, [navigate]);  // ✅ Dependency array includes navigate
 ```
+
+**Why:** When `handleClick` is a regular function, it's recreated on every render. By wrapping it with `useCallback`, we memoize it so it only changes when `navigate` changes. This prevents the useEffect from running unnecessarily.
 
 ### ✅ Fix 2: App.js (Line 8)
 **Removed unused Welcome import:**

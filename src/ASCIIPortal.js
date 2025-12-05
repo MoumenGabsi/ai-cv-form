@@ -1,18 +1,18 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import ASCIIText from './ASCIIText';
 
 export default function ASCIIPortal() {
   const navigate = useNavigate();
   const [isExiting, setIsExiting] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setIsExiting(true);
     // Wait for animation to complete
     setTimeout(() => {
       navigate('/nexus');
     }, 600);
-  };
+  }, [navigate]);
 
   useEffect(() => {
     const handleKeyPress = (e) => {
