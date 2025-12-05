@@ -1462,7 +1462,7 @@ function RootRedirect() {
 
 export default function AppWrapper() {
   return (
-    <Router>
+    <Router basename="/ai-cv-form">
       <Routes>
         <Route path="/" element={<RootRedirect />} />
         <Route path="/portal" element={<ASCIIPortal />} />
